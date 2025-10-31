@@ -4,7 +4,7 @@ A native Windows WPF application for controlling pan and tilt servos for the [FA
 
 This is a Windows port of the [macOS FAC1 Controller](https://github.com/FyrbyAdditive/FAC1-Controller-macOS), built using C# and WPF with the [Feetech Servo SDK for C#](https://github.com/FyrbyAdditive/feetech-servo-sdk-csharp).
 
-![FAC1 Camera](https://github.com/FyrbyAdditive/FAC1-Controller-macOS/raw/refs/heads/main/Media/FAC1-Camera.png)
+![FAC1 Camera](https://github.com/FyrbyAdditive/FAC1-Controller-Windows/raw/refs/heads/main/Media/FAC1-Camera.png)
 
 ## Features
 
@@ -18,6 +18,8 @@ This is a Windows port of the [macOS FAC1 Controller](https://github.com/FyrbyAd
 - **Color-Coded Controls**: Green pan buttons, blue tilt buttons, orange center button
 - **Settings Persistence**: Saves axis inversions and window preferences
 - **MSI Installer**: Professional installer package with uninstall support
+
+![alt text](https://github.com/FyrbyAdditive/FAC1-Controller-Windows/raw/refs/heads/main/Media/FAC1-Controller-Banner.png "FAC1 Camera Controller")
 
 ## Requirements
 
@@ -124,31 +126,6 @@ On Windows, make sure:
 2. Your user account has permission to access serial ports
 3. The COM port driver is properly installed
 
-## Project Structure
-
-```
-FAC1-Controller-Windows/
-├── Controllers/
-│   └── ServoController.cs          # Servo control logic with calibration
-├── Services/
-│   └── SerialPortManager.cs        # USB-serial connection management
-├── Installer/
-│   ├── Product.wxs                 # WiX installer definition
-│   ├── License.rtf                 # License agreement for installer
-│   └── README.md                   # Installer build instructions
-├── MainWindow.xaml                 # Main UI layout (280x400px)
-├── MainWindow.xaml.cs              # Main UI logic and event handlers
-├── AboutWindow.xaml                # About dialog with logo
-├── AboutWindow.xaml.cs             # About dialog logic
-├── App.xaml                        # Application resources and button styles
-├── App.xaml.cs                     # Application entry point
-├── AppSettings.cs                  # Settings persistence (JSON)
-├── FAME-150-150.png                # Application logo
-├── build-installer.ps1             # PowerShell script to build MSI
-├── FAC1-Controller-Windows.csproj  # Project configuration
-└── README.md                       # This file
-```
-
 ## Building for Distribution
 
 ### Build MSI Installer (Recommended)
@@ -215,7 +192,7 @@ The application follows a clean architecture pattern:
 
 ## Credits
 
-This project uses the [Feetech Servo SDK for C#](../feetech-servo-sdk-csharp).
+This project uses the [Feetech Servo SDK for C#](https://github.com/FyrbyAdditive/feetech-servo-sdk-csharp).
 
 Based on the macOS version: [FAC1-Controller-macOS](https://github.com/FyrbyAdditive/FAC1-Controller-macOS)
 

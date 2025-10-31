@@ -1,0 +1,169 @@
+<Application x:Class="FAC1_Controller_Windows.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!-- Define application-wide styles and resources -->
+        <!-- Pan Button Style (Green) -->
+        <Style TargetType="Button" x:Key="PanButtonStyle">
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#2A2A2A"/>
+            <Setter Property="Foreground" Value="#34C759"/>
+            <Setter Property="BorderBrush" Value="#34C759"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="30">
+                            <Viewbox Width="32" Height="32" 
+                                     HorizontalAlignment="Center" 
+                                     VerticalAlignment="Center">
+                                <TextBlock Text="{TemplateBinding Content}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          FontFamily="Arial Black"
+                                          FontWeight="Black"
+                                          RenderTransformOrigin="0.5,0.5"/>
+                            </Viewbox>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#353535"/>
+                                <Setter Property="BorderBrush" Value="#28A745"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#404040"/>
+                                <Setter Property="BorderBrush" Value="#1E7E34"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#1A1A1A"/>
+                                <Setter Property="Foreground" Value="#505050"/>
+                                <Setter Property="BorderBrush" Value="#404040"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Tilt Button Style (Blue) -->
+        <Style TargetType="Button" x:Key="TiltButtonStyle">
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#2A2A2A"/>
+            <Setter Property="Foreground" Value="#007AFF"/>
+            <Setter Property="BorderBrush" Value="#007AFF"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="30">
+                            <Viewbox Width="32" Height="32" 
+                                     HorizontalAlignment="Center" 
+                                     VerticalAlignment="Center">
+                                <TextBlock Text="{TemplateBinding Content}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          FontFamily="Arial Black"
+                                          FontWeight="Black"
+                                          RenderTransformOrigin="0.5,0.5"/>
+                            </Viewbox>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#353535"/>
+                                <Setter Property="BorderBrush" Value="#0051D5"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#404040"/>
+                                <Setter Property="BorderBrush" Value="#0040A0"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#1A1A1A"/>
+                                <Setter Property="Foreground" Value="#505050"/>
+                                <Setter Property="BorderBrush" Value="#404040"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="Button" x:Key="CenterButtonStyle">
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="32"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="#2A2A2A"/>
+            <Setter Property="Foreground" Value="#FF9500"/>
+            <Setter Property="BorderBrush" Value="#FF9500"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="30">
+                            <Viewbox Width="32" Height="32" 
+                                     HorizontalAlignment="Center" 
+                                     VerticalAlignment="Center">
+                                <TextBlock Text="{TemplateBinding Content}"
+                                          Foreground="{TemplateBinding Foreground}"
+                                          FontFamily="Arial Black"
+                                          FontWeight="Black"
+                                          RenderTransformOrigin="0.5,0.5"/>
+                            </Viewbox>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#353535"/>
+                                <Setter Property="BorderBrush" Value="#E68A00"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#404040"/>
+                                <Setter Property="BorderBrush" Value="#CC7A00"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#1A1A1A"/>
+                                <Setter Property="Foreground" Value="#505050"/>
+                                <Setter Property="BorderBrush" Value="#404040"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="CheckBox" x:Key="ModernCheckBoxStyle">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="StatusTextStyle">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Margin" Value="5,2"/>
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="HeaderTextStyle">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Application.Resources>
+</Application>

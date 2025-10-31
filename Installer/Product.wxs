@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  
+  <Package Name="FAC1 Pan &amp; Tilt Controller" 
+           Manufacturer="Fyrby Additive Manufacturing &amp; Engineering"
+           Version="1.0.0.0"
+           UpgradeCode="8F7A5C3D-2E4B-4A1C-9D8F-6E3B7C4A5D2E">
+    
+    <SummaryInformation 
+      Description="Windows native controller for FAC1 Camera pan and tilt servos. A minimal Windows application for controlling pan and tilt servos for the FAC1 Camera. Copyright 2025, Timothy Ellis, Fyrby Additive Manufacturing &amp; Engineering"
+      Manufacturer="Fyrby Additive Manufacturing &amp; Engineering" />
+
+    <Media Id="1" Cabinet="product.cab" EmbedCab="yes" />
+
+    <!-- Major Upgrade -->
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <!-- Directory Structure -->
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="FAC1 Controller">
+        <Component Id="ProductComponent" Guid="A8B9C0D1-2E3F-4A5B-6C7D-8E9F0A1B2C3D">
+          <File Id="MainExecutable" 
+                Source="..\bin\Release\net8.0-windows\FAC1-Controller-Windows.exe" 
+                KeyPath="yes">
+            <Shortcut Id="StartMenuShortcut"
+                      Directory="ProgramMenuFolder"
+                      Name="FAC1 Controller"
+                      Description="Pan and tilt controller for FAC1 Camera"
+                      WorkingDirectory="INSTALLFOLDER" />
+          </File>
+          
+          <File Id="MainDLL" Source="..\bin\Release\net8.0-windows\FAC1-Controller-Windows.dll" />
+          <File Id="MainRuntimeConfig" Source="..\bin\Release\net8.0-windows\FAC1-Controller-Windows.runtimeconfig.json" />
+          <File Id="MainDepsJson" Source="..\bin\Release\net8.0-windows\FAC1-Controller-Windows.deps.json" />
+          
+          <!-- FeetechServoSDK -->
+          <File Id="FeetechSDK" Source="..\bin\Release\net8.0-windows\FeetechServoSDK.dll" />
+          
+          <!-- System.IO.Ports -->
+          <File Id="SystemIOPorts" Source="..\bin\Release\net8.0-windows\System.IO.Ports.dll" />
+          
+          <!-- Logo -->
+          <File Id="LogoPNG" Source="..\FAME-150-150.png" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+    <StandardDirectory Id="ProgramMenuFolder">
+      <Component Id="ProgramMenuComponent" Guid="B9C0D1E2-3F4A-5B6C-7D8E-9F0A1B2C3D4E">
+        <RemoveFolder Id="RemoveProgramMenuFolder" Directory="ProgramMenuFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" 
+                       Key="Software\FyrbyAdditive\FAC1Controller" 
+                       Name="installed" 
+                       Type="integer" 
+                       Value="1" 
+                       KeyPath="yes" />
+      </Component>
+    </StandardDirectory>
+
+    <!-- Feature -->
+    <Feature Id="ProductFeature" Title="FAC1 Controller" Level="1">
+      <ComponentRef Id="ProductComponent" />
+      <ComponentRef Id="ProgramMenuComponent" />
+    </Feature>
+
+    <!-- Icon -->
+    <Icon Id="AppIcon" SourceFile="..\bin\Release\net8.0-windows\FAC1-Controller-Windows.exe" />
+
+    <!-- Properties -->
+    <Property Id="ARPPRODUCTICON" Value="AppIcon" />
+    <Property Id="ARPHELPLINK" Value="https://github.com/FyrbyAdditive/FAC1-Controller-macOS" />
+    <Property Id="ARPCOMMENTS" Value="A minimal Windows application for controlling pan and tilt servos for the FAC1 Camera. Copyright 2025, Timothy Ellis, Fyrby Additive Manufacturing &amp; Engineering" />
+    
+    <!-- UI Configuration -->
+    <ui:WixUI Id="WixUI_Minimal" />
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+    
+  </Package>
+</Wix>

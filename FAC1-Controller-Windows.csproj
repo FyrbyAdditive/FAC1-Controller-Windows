@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <AssemblyName>FAC1-Controller-Windows</AssemblyName>
+    <RootNamespace>FAC1_Controller_Windows</RootNamespace>
+    <!-- ApplicationIcon>AppIcon.ico</ApplicationIcon -->
+    <AssemblyTitle>FAC1 Pan &amp; Tilt Controller</AssemblyTitle>
+    <AssemblyDescription>Windows native controller for FAC1 Camera pan and tilt servos</AssemblyDescription>
+    <AssemblyCompany>Fyrby Additive Manufacturing &amp; Engineering</AssemblyCompany>
+    <AssemblyProduct>FAC1 Controller</AssemblyProduct>
+    <AssemblyCopyright>Copyright 2025, Timothy Ellis, Fyrby Additive Manufacturing &amp; Engineering</AssemblyCopyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Ports" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\feetech-servo-sdk-csharp\FeetechServoSDK\FeetechServoSDK.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="FAME-150-150.png" />
+  </ItemGroup>
+
+</Project>

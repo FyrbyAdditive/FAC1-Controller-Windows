@@ -1,0 +1,11 @@
+<Project Sdk="WixToolset.Sdk/5.0.2">
+  <PropertyGroup>
+    <OutputName>FAC1-Controller-Setup</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath>$(MSBuildExtensionsPath)\WiX Toolset\v5\wix.targets</WixTargetsPath>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="WixToolset.UI.wixlib" Version="5.0.2" />
+  </ItemGroup>
+</Project>
